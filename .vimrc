@@ -58,7 +58,7 @@ set mouse=a
 set foldlevel=99
 set clipboard=unnamed " Use system clipboard instead of vim's
 set laststatus=2      " Always show status bar
-
+set t_Co=256
 " Extra Highlighting
 highlight BadWhitespace ctermbg=red guibg=red
 
