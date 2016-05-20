@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-mv .bashrc ~/.bashrc;
-mv .bash_aliases ~/.bash_aliases;
-mv .vimrc ~/.vimrc;
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
+cp .bashrc ~/.bashrc;
+cp .bash_aliases ~/.bash_aliases;
+cp .vimrc ~/.vimrc;
 mkdir ~/.vim;
-mv .vim ~/vim;
+cp .vim ~/vim;
