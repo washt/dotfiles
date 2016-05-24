@@ -110,8 +110,35 @@ fi
 function parse_git_dirty {
   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
+#function parse_git_branch {
+#    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+#}
 function parse_git_branch {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
-export PS1='\[\033[1;33m\]\w\[\033[0m\] $(parse_git_branch)\nλ →  ' 
+# Clone all repos for a given org/user
+function pull_all_repos() {
+   USER="$@";
+   PAGE=1;
+   curl "https://api.github.com/users/$USER/repos?page=$PAGE&per_page=100" | grep -e 'git_url*' | cut -d \" -f 4 | xargs -L1 git clone
+}
+export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(parse_git_branch)\nλ →  ' 
+#export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(parse_git_branch)$ '
+#export PS1='\[\e[32m\]λ \w\[\e[36m\]$(parse_git_branch)\[\e[0m\]\n\[\e[32m\]→\[\e[0m\] '
+
 export PATH="~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:$PATH"
+
+[ -s "/home/twash/.dnx/dnvm/dnvm.sh" ] && . "/home/twash/.dnx/dnvm/dnvm.sh" # Load dnvm
+
+# added by Anaconda2 2.4.0 installer
+#export PATH="/home/twash/bin/anaconda2/bin:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+shopt -s cdable_vars
+export dropbox="$HOME/Dropbox"
+export tfj="$HOME/tfj"
+export lab="$HOME/odu/visionLab"
+export hack="$HOME/hack"
+
+[[ -s "/home/twash/.gvm/scripts/gvm" ]] && source "/home/twash/.gvm/scripts/gvm"
