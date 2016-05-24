@@ -122,7 +122,7 @@ function pull_all_repos() {
    PAGE=1;
    curl "https://api.github.com/users/$USER/repos?page=$PAGE&per_page=100" | grep -e 'git_url*' | cut -d \" -f 4 | xargs -L1 git clone
 }
-export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(parse_git_branch)\nλ →  ' 
+export PS1='\u@\h\n\[\033[1;33m\]\w\[\033[0m\] $(parse_git_branch)\nλ →  ' 
 #export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\] $(parse_git_branch)$ '
 #export PS1='\[\e[32m\]λ \w\[\e[36m\]$(parse_git_branch)\[\e[0m\]\n\[\e[32m\]→\[\e[0m\] '
 
