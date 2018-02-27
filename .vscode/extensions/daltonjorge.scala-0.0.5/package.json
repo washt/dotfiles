@@ -1,0 +1,48 @@
+{
+	"name": "scala",
+	"displayName": "Scala Syntax",
+	"description": "A Scala Syntax based on https://github.com/sellmerfud/scala.tmbundle",
+	"version": "0.0.5",
+	"publisher": "daltonjorge",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"homepage": "https://github.com/daltonjorge/vscode-scala/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/daltonjorge/vscode-scala.git"
+	},
+	"icon": "images/smooth-spiral.png",
+	"categories": [
+		"Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "scala",
+				"aliases": [
+					"Scala",
+					"scala"
+				],
+				"extensions": [
+					".scala",
+					".sbt"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "scala",
+				"scopeName": "source.scala",
+				"path": "./syntaxes/Scala.tmLanguage"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "7a6e8b60-4552-4afd-a31f-7f6cc59f14a4",
+		"publisherId": "56c04c76-57bd-4e15-a793-c9a7448650ca",
+		"publisherDisplayName": "Dalton Jorge"
+	}
+}

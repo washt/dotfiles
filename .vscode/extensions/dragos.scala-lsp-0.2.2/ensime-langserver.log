@@ -1,0 +1,9 @@
+[2017-01-28 22:04:33,134] INFO org.github.dragos.vscode.Main$ - Starting server in /Users/dragos/workspace/oss/dragos-vscode-scala/scala
+[2017-01-28 22:04:33,142] INFO org.github.dragos.vscode.Main$ - Classpath: /Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/lib/tools.jar:/Users/dragos/.vscode/extensions/dragos.ensime-scala-0.0.5/server/ensimeServer-assembly-0.1.0.jar
+[2017-01-28 22:04:33,407] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[2017-01-28 22:04:33,619] INFO org.github.dragos.vscode.EnsimeLanguageServer - Initialized with 15828, /Users/dragos/workspace/oss/dragos-vscode-scala/scala, ClientCapabilities()
+[2017-01-29 15:21:38,627] INFO langserver.core.MessageReader - End of stream, terminating thread
+[2017-01-29 15:21:38,627] INFO langserver.core.MessageReader - End of stream, terminating thread
+[2017-01-29 15:21:38,646] INFO org.github.dragos.vscode.EnsimeLanguageServer - Shutdown request
+[2017-01-29 15:21:38,655] INFO org.github.dragos.vscode.EnsimeLanguageServer - Shutting down actor system.
+[2017-01-29 15:21:38,720] INFO org.github.dragos.vscode.EnsimeLanguageServer - Actor system down.

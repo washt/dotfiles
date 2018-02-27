@@ -1,0 +1,26 @@
+{
+  "Add Default Sbt resolver": {
+		"prefix": "resolvers",
+		"body": [
+			"resolvers += ${Resolver.sonatypeRepo(\"snapshots\")}"
+		]
+	},
+
+	"Add Sbt resolver": {
+		"prefix": "resolvers",
+		"body": [
+			"resolvers += ",
+			"\"${1:Repository name}\" at \"${2:Url where the repository is defined}\""
+		]
+	},
+
+	"New ScalaTest suite": {
+		"prefix": "suite",
+		"body": [
+			"class ${1:MyTestSuite} extends FunSuite {",
+			"  test(\"${2:Test name}\") {",
+			"  }",
+			"}"
+		]
+	}
+}
