@@ -16,8 +16,9 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTFILESIZE=
+HISTSIZE=
+HISTTIMEFORMAT="[%F %T] "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -142,3 +143,7 @@ export lab="$HOME/odu/visionLab"
 export hack="$HOME/hack"
 
 [[ -s "/home/twash/.gvm/scripts/gvm" ]] && source "/home/twash/.gvm/scripts/gvm"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="$PATH:/Users/tuckerwash/Library/Python/3.6/bin"
