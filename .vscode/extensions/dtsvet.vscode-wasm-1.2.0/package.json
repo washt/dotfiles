@@ -1,0 +1,157 @@
+{
+	"name": "vscode-wasm",
+	"displayName": "WebAssembly",
+	"description": "WebAssembly Toolkit for VSCode",
+	"version": "1.2.0",
+	"publisher": "dtsvet",
+	"license": "MIT",
+	"icon": "images/wasm-extension-icon.png",
+	"engines": {
+		"vscode": "^1.18.0"
+	},
+	"bugs": {
+		"url": "https://github.com/reklatsmasters/vscode-wasm/issues"
+	},
+	"homepage": "https://github.com/reklatsmasters/vscode-wasm",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/reklatsmasters/vscode-wasm.git"
+	},
+	"categories": [
+		"Programming Languages",
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:wasm",
+		"onCommand:wasm.wasm2wat",
+		"onCommand:wasm.save2wat",
+		"onCommand:wasm.save2wasm"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "wasm",
+				"extensions": [
+					".wasm"
+				],
+				"aliases": [
+					"WebAssembly Binary",
+					"WebAssembly"
+				],
+				"configuration": "./language-configuration.json"
+			},
+			{
+				"id": "wat",
+				"extensions": [
+					".wat",
+					".wast"
+				],
+				"aliases": [
+					"WebAssembly Text"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "wasm",
+				"scopeName": "source.wasm",
+				"path": "./syntaxes/webassembly.tmLanguage.json"
+			},
+			{
+				"language": "wat",
+				"scopeName": "source.wasm",
+				"path": "./syntaxes/webassembly.tmLanguage.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "wasm.wasm2wat",
+				"title": "Show WebAssembly",
+				"category": "wasm"
+			},
+			{
+				"command": "wasm.save2wat",
+				"title": "Save as WebAssembly text file",
+				"category": "wasm"
+			},
+			{
+				"command": "wasm.save2wasm",
+				"title": "Save as WebAssembly binary file",
+				"category": "wasm"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "wasm.wasm2wat",
+					"when": "resourceLangId == wasm",
+					"group": "wasm"
+				},
+				{
+					"command": "wasm.save2wat",
+					"when": "resourceLangId == wasm",
+					"group": "wasm"
+				},
+				{
+					"command": "wasm.save2wasm",
+					"when": "resourceLangId == wat",
+					"group": "wasm"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "wasm.save2wat",
+					"when": "resourceLangId == wasm",
+					"group": "wasm"
+				},
+				{
+					"command": "wasm.save2wasm",
+					"when": "resourceLangId == wat",
+					"group": "wasm"
+				}
+			],
+			"editor/title/context": [
+				{
+					"command": "wasm.save2wat",
+					"when": "resourceLangId == wasm",
+					"group": "wasm"
+				},
+				{
+					"command": "wasm.save2wasm",
+					"when": "resourceLangId == wat",
+					"group": "wasm"
+				}
+			]
+		}
+	},
+	"keywords": [
+		"wasm",
+		"wast",
+		"webassembly",
+		"asm",
+		"web assembly"
+	],
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.48",
+		"@types/node": "^7.0.61",
+		"typescript": "^2.8.3",
+		"vscode": "^1.1.17"
+	},
+	"dependencies": {
+		"wabt": "^1.0.0-nightly.20180421"
+	},
+	"__metadata": {
+		"id": "ccdc6b78-b9ca-4057-99b2-6f3449c9509d",
+		"publisherId": "a5e533fe-f179-4a09-a704-0ecd5fa0aa5e",
+		"publisherDisplayName": "Dmitriy Tsvettsikh"
+	}
+}
